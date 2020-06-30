@@ -93,21 +93,39 @@ align-items: center;
 }
 
 .todo-item {
+    position: relative;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     border-bottom: 1px solid white;
     margin: 2% 0 2% 0;
-    font-size: 100%;
+    font-size: 150%;
+    color: #676767;
+    min-width: 100%;
+}
+.todo-text {
+    z-index: 0;
+}
+.todo-item-done {
+    position: relative;
+    text-decoration: line-through;
+    text-decoration-style: wavy;
+    text-decoration-color: black;
+    z-index: 0;
 }
 
-.todo-item-done {
-    text-decoration: line-through;
-    text-decoration-color: black;
-}
 
 .todo-item-delete-btn {
-    max-height: 4%;
-    max-width: 4%;
-    color: #6C0303;
+    position: relative;
+    font-size: 100%;
+    max-height: 5%;
+    max-width: 5%;
+    color: #CB3636;
+    border: none;
+    background-color: #E9EDF0;
+    z-index: 1;
+}
+
+.todo-item-delete-btn:hover, .todo-item:hover, .todo-item-done:hover {
+    cursor: pointer;
 }
