@@ -6,7 +6,10 @@ const todoListItems = document.querySelector('#todo-list');
 
 const getTodo = () => {
     let todo = newTodo.value;
-    createTodo(todo);
+    if(newTodo.value === null || newTodo.value === undefined || newTodo.value === '' ){
+    return;
+    }
+    else createTodo(todo);
 }
 //FUNKAR
 
@@ -50,9 +53,16 @@ if(e.target.className==='todo-item-delete-btn') {
     let removeTodo = e.target.parentNode;
     deleteTodo(removeTodo);
 } 
-else return
+if(e.target.className === 'todo-item') {
+    e.target.className ='todo-item-done';
+} else if(e.target.className === 'todo-item-done') {
+    e.target.className = 'todo-item';
 }
+else return;
+}
+
 //FUNKAR
+
 const deleteTodo = (removeThis) => {
     todoList.removeChild(removeThis);
     localStorage.removeItem(removeThis);
